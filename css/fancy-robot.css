@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -32,7 +32,7 @@
 }
 .robot-eyes {
   display: flex;
-  align-items:baseline;
+  align-items: baseline;
   flex-direction: row;
 }
 .robot-eye-left {
@@ -40,6 +40,15 @@
   height: 100px;
   background: url(https://picsum.photos/seed/picsum/200/300);
   border-radius: 30px;
+  animation: robot-eye-left 2s ease-in-out infinite;
+}
+@keyframes robot-eye-left {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .robot-eye-right {
@@ -47,6 +56,42 @@
   height: 25px;
   background: darkgrey;
   margin-left: 50px;
+  animation: robot-eye-right 2s ease-in-out infinite,
+    robot-eye-color 2s infinite linear;
+}
+@keyframes robot-eye-right {
+  0% {
+    transform: translate(0, 0);
+  }
+  30% {
+    transform: translateX(-20px);
+  }
+  60% {
+    transform: translate(-20px, -40px);
+  }
+  80% {
+    transform: translate(10px, -40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes robot-eye-color {
+  0% {
+    background: darkgrey;
+  }
+  30% {
+    background: purple;
+  }
+  60% {
+    background: pink;
+  }
+  80% {
+    background: yellow;
+  }
+  100% {
+    background: darkgray;
+  }
 }
 
 .robot-ear-left {
@@ -60,6 +105,15 @@
   border-bottom-right-radius: 60px;
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;
+  animation: robot-ear-left 2s ease-in-out infinite;
+}
+@keyframes robot-ear-left {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .robot-ear-right {
@@ -73,6 +127,16 @@
   border-top-right-radius: 60px;
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
+  animation: robot-ear-right 2s ease-in-out infinite;
+}
+@keyframes robot-ear-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
 }
 
 .robot-nose {
@@ -81,6 +145,9 @@
   width: 30px;
   height: 100px;
   margin-top: 20px;
+}
+.robot-nose:hover {
+  transform: scale(1.2);
 }
 .top {
   position: absolute;
@@ -111,17 +178,34 @@
   flex-direction: row;
   gap: 5px;
 }
+@keyframes robot-teeth {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+}
 .robot-tooth-one {
   width: 40px;
   height: 30px;
   background-color: white;
   clip-path: polygon(0% 60%, 100% 30%, 100% 100%, 0% 100%);
+  animation: robot-teeth 0.5s ease-in-out infinite;
 }
 .robot-tooth-two {
   width: 40px;
   height: 30px;
   background-color: white;
   clip-path: polygon(0% 30%, 100% 20%, 100% 100%, 0% 100%);
+  animation: robot-teeth 0.3s ease-in-out infinite;
 }
 .robot-tooth-three,
 .robot-tooth-four,
@@ -131,67 +215,111 @@
   height: 30px;
   background-color: white;
   clip-path: polygon(0% 20%, 100% 20%, 100% 100%, 0% 100%);
+  animation: robot-teeth 0.3s ease-in-out infinite;
 }
 .robot-tooth-five {
   width: 40px;
   height: 30px;
   background-color: white;
   clip-path: polygon(0% 20%, 100% 30%, 100% 100%, 0% 100%);
+  animation: robot-teeth 0.3s ease-in-out infinite;
 }
 .robot-tooth-six {
   width: 40px;
   height: 30px;
   background-color: white;
   clip-path: polygon(0% 30%, 100% 60%, 100% 100%, 0% 100%);
+  animation: robot-teeth 0.5s ease-in-out infinite;
 }
 .robot-tooth-seven {
   width: 40px;
   height: 30px;
   background-color: white;
   clip-path: polygon(0% 20%, 100% 20%, 100% 90%, 0% 60%);
+  animation: robot-teeth 0.5s ease-in-out infinite;
 }
 .robot-tooth-eight {
   width: 40px;
   height: 30px;
   background-color: white;
   clip-path: polygon(0% 20%, 100% 20%, 100% 100%, 0% 90%);
+  animation: robot-teeth 0.3s ease-in-out infinite;
 }
 .robot-tooth-eleven {
   width: 40px;
   height: 30px;
   background-color: white;
   clip-path: polygon(0% 20%, 100% 20%, 100% 95%, 0% 100%);
+  animation: robot-teeth 0.3s ease-in-out infinite;
 }
 .robot-tooth-twelve {
   width: 40px;
   height: 30px;
   background-color: white;
   clip-path: polygon(0% 20%, 100% 20%, 100% 60%, 0% 95%);
+  animation: robot-teeth 0.5s ease-in-out infinite;
 }
 
 .robot-hair-style {
   display: flex;
   flex-direction: row;
+  align-items: first baseline;
   gap: 20px;
   position: absolute;
   top: -60px;
-  transform: rotate(180deg);
+  animation: robot-hair-style 2s ease-in-out infinite;
 }
-
+@keyframes robot-hair-style {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0px, -30px);
+  }
+}
 .robot-hair-one {
   width: 30px;
   height: 35px;
   background-color: green;
+  animation: robot-hair-one 2s ease-in-out infinite;
+}
+@keyframes robot-hair-one {
+  from {
+    transform: translateY(0px);
+    height: 10px;
+  }
+  to {
+    transform: translateY(-10px);
+  }
 }
 
 .robot-hair-two {
   width: 30px;
   height: 40px;
   background-color: orange;
+  animation: robot-hair-two 2s ease-in-out infinite;
+}
+@keyframes robot-hair-two {
+  from {
+    transform: translateY(0px);
+    height: 20px;
+  }
+  to {
+    transform: translateY(-15px);
+  }
 }
 
 .robot-hair-three {
   width: 30px;
   height: 50px;
   background-color: pink;
+  animation: robot-hair-three 2s ease-in-out infinite;
+}
+@keyframes robot-hair-three {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-20px);
+  }
 }
